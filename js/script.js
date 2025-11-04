@@ -1,62 +1,37 @@
 /* -------------------- header -------------------- */
 
 // header_center_nav
-const head = document.querySelector('header')
-const nav = document.querySelector('.mainmenu')
-const navs = document.querySelectorAll('.mainmenu>li');
-const mains = document.querySelectorAll('.mainmenu>li>a');
-const subs = document.querySelectorAll('.submenu');
-const back = document.querySelector('.sub_back');
+const head = document.querySelector('header');
+const gnb = document.querySelector('.gnb');
+const gnb_items = document.querySelectorAll('.gnb>li');
 
-nav.addEventListener('mouseover',function(){
-        for(j=0; j<5; j++){
-            subs[j].style.height = '300px';
-        };
-        head.style.borderBottom = '1px solid #e7e7e7';
-        back.style.height = '300px';
-    })
-nav.addEventListener('mouseleave',function(){
-        for(j=0; j<5; j++){
-            subs[j].style.height = '0';
-        };
-        head.style.borderBottom = 'none';
-        back.style.height = '0';
-})
+gnb_items.forEach(item => {
+    item.addEventListener('mouseover', function() {
+        // 모든 li에서 active 제거
+        gnb_items.forEach(item => item.classList.remove('active'));
+        // 현재 item에만 active 추가
+        item.classList.add('active');
+        
+        // 모든 서브메뉴 숨기기
+        gnb_items.forEach(item => {
+            const s = item.querySelector('.gnb_sub');
+            if (s) s.style.display = 'none';
+        });
+        
+        // 현재 item의 서브메뉴만 표시
+        const sub = item.querySelector('.gnb_sub');
+        sub.style.display = 'block';
+    });
+});
 
-function navigation(){
-    let widthSize = window.innerWidth
-    if(widthSize < 890){
-        nav.style.display = "none"
-    }
-}
-navigation()
-
-
-// header_right_ham
-const ham = document.querySelector('.ham');
-const hamTop = document.querySelector('.ham>span:nth-child(1)')
-const hamCenter = document.querySelector('.ham>span:nth-child(2)');
-const hamBottom = document.querySelector('.ham>span:nth-child(3)');
-const navon = document.querySelector('.nav_on')
-
-ham.addEventListener('click',function(){
-    ham.classList.toggle('on');
-    if(ham.classList.contains('on')){
-        hamCenter.style.display = 'none';
-        hamTop.style.transform = 'rotate(45deg)';
-        hamTop.style.marginTop = '13px';
-        hamBottom.style.transform = 'rotate(-45deg)';
-        hamBottom.style.marginTop = '-2px';
-        navon.style.display='flex';
-    }else{
-        hamCenter.style.display = 'block';
-        hamTop.style.transform = 'rotate(0)';
-        hamTop.style.marginTop = '5px';
-        hamBottom.style.transform = 'rotate(0)';
-        hamBottom.style.marginTop = '8px';
-        navon.style.display='none';
-    }
-})
+// gnb에서 마우스가 벗어날 때만 모두 제거
+gnb.addEventListener('mouseleave', function() {
+    gnb_items.forEach(item => {
+        item.classList.remove('active');
+        const sub = item.querySelector('.gnb_sub');
+        sub.style.display = 'none';
+    });
+});
 
 /* -------------------- main -------------------- */
 // section_1_slide

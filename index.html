@@ -4,104 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gcova</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js" defer></script>
+    <!-- swiper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
 <body>
     <!-- ---------------------header--------------------- -->
     <header>
-        <h1 class="logo"><a href="#"><img src="img/logo.png" alt="로고"></a></h1>
-        <nav>
-            <ul class="mainmenu">
-                <li>
-                    <a href="#">브랜드소개</a>
-                    <ul class="submenu">
-                        <li><a href="./page//index2.html">회사소개</a></li>
-                        <li><a href="#">주요시설</a></li>
-                        <li><a href="#">찾아오시는길</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">메뉴안내</a>
-                    <ul class="submenu">
-                        <li><a href="#">메뉴소개</a></li>
-                        <li><a href="#">제품영양정보</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">창업안내</a>
-                    <ul class="submenu">
-                        <li><a href="#">브랜드경쟁력</a></li>
-                        <li><a href="#">가맹개설절차</a></li>
-                        <li><a href="#">비용안내</a></li>
-                        <li><a href="#">창업문의</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">매장안내</a>
-                    <ul class="submenu">
-                        <li><a href="#">매장찾기</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">커뮤니티</a>
-                    <ul class="submenu">
-                        <li><a href="#">공지사항</a></li>
-                        <li><a href="#">문의하기</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-        <nav class="nav_on">
-            <h1>GCOVA</h1>
-            <ul>
-                <li>
-                    <a href="#">브랜드소개</a>
-                    <ul class="onsub">
-                        <li><a href="#">회사소개</a></li>
-                        <li><a href="#">주요시설</a></li>
-                        <li><a href="#">찾아오시는길</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">메뉴안내</a>
-                    <ul class="onsub">
-                        <li><a href="#">메뉴소개</a></li>
-                        <li><a href="#">제품영양정보</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">창업안내</a>
-                    <ul class="onsub">
-                        <li><a href="#">브랜드경쟁력</a></li>
-                        <li><a href="#">가맹개설절차</a></li>
-                        <li><a href="#">비용안내</a></li>
-                        <li><a href="#">창업문의</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">매장안내</a>
-                    <ul class="onsub">
-                        <li><a href="#">매장찾기</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">커뮤니티</a>
-                    <ul class="onsub">
-                        <li><a href="#">공지사항</a></li>
-                        <li><a href="#">문의하기</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-        <span class="sub_back"></span>
-        <div class="header_right">
-            <div class="ham">
-                <span></span>
-                <span></span>
-                <span></span>
+        <div class="header">
+            <h1 class="logo"><a href="#"><img src="img/logo.png" alt="로고"></a></h1>
+            <nav>
+                <ul class="gnb">
+                    <li>
+                        <a href="#">BRAND</a>
+                        <ul class="gnb_sub">
+                            <li><a href="./page//index2.html">지코바 소개</a></li>
+                            <li><a href="#">지코바 컨셉</a></li>
+                            <li><a href="#">지코바 BI</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">MENU</a>
+                        <ul class="gnb_sub">
+                            <li><a href="#">전체 메뉴</a></li>
+                            <li><a href="#">치킨 메뉴</a></li>
+                            <li><a href="#">사이드 메뉴</a></li>
+                            <li><a href="#">메뉴별 정보</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">FRANCHISING</a>
+                        <ul class="gnb_sub">
+                            <li><a href="#">왜 지코바인가</a></li>
+                            <li><a href="#">창업절차</a></li>
+                            <li><a href="#">비용안내</a></li>
+                            <li><a href="#">창업문의</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">LOCATION</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header_right">
+                <a href="#;">이벤트</a>
+                <a href="#;" class="point">GLOBAL</a>
             </div>
         </div>
     </header>
@@ -413,7 +364,7 @@
 
     <!-- footer -->
     <footer>
-        <div class="fotWrap">
+        <div class="fot_wrap">
             <h1><img src="img/logo_fot.png" alt="logo"></h1>
             <ul>
                 <li><a href="#">이용약관</a></li>
@@ -432,13 +383,14 @@
             <p>Copyright (C) 1994 gcova.co.kr All Rights Reserved.</p>
         </div>
     </footer>
-    <div class="btnWrap">
-        <div class="fixbtn">
-            <!-- <a href=""> -->
+
+    <div class="fix_btn_box">
+        <div class="apply_btn">
+            <a href="#;">
                 <p>창업상담<br/>신청하기</p>
-            <!-- </a> -->
+            </a>
         </div>
-        <div class="topBtn">
+        <div class="top_btn">
             <img src="img/topArrow.png" alt="top button">
         </div>
     </div>
