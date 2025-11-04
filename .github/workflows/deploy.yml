@@ -3,24 +3,40 @@ name: Deploy Static Site
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  merge_group:
+
+# Pages 배포에 필요한 권한
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 동시 배포 방지
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     
     steps:
     - name: 체크아웃
       uses: actions/checkout@v4
       
-    - name: GitHub Pages 배포
-      uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    - name: GitHub Pages 설정
+      uses: actions/configure-pages@v4
+      
+    - name: 아티팩트 업로드
+      uses: actions/upload-pages-artifact@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./
+        path: ./
+        
+    - name: GitHub Pages 배포
+      id: deployment
+      uses: actions/deploy-pages@v4
         
   notification:
     runs-on: ubuntu-latest
@@ -30,7 +46,7 @@ jobs:
     steps:
     - name: 배포 완료 알림
       run: |
-        echo "배포가 완료되었습니다!"
-        echo "이벤트: ${{ github.event_name }}"
-        echo "브랜치: ${{ github.ref }}"
-        echo "커밋 메시지: ${{ github.event.head_commit.message }}"
+        echo "✅ 배포가 완료되었습니다!"
+        echo "📝 이벤트: ${{ github.event_name }}"
+        echo "🌿 브랜치: ${{ github.ref }}"
+        echo "👤 작성자: ${{ github.actor }}"
